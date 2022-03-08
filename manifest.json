@@ -1,0 +1,40 @@
+{
+	"name": "Snippets Chatwork",
+	"description": "Command Prompt Chatwork!",
+	"version": "1.0",
+	"manifest_version": 3,
+	"background": {
+		"service_worker": "./process.js"
+	},
+	"content_scripts": [
+		{
+		  "matches": ["https://www.chatwork.com/*"],
+		  "css": ["styles.css"],
+		  "js": ["script.js"]
+		}
+	  ],
+	"permissions": ["storage"],
+	"action": {
+		"default_title": "Snippets Chatwork",
+		"default_popup": "./index.html",
+		"default_icon": {
+			"16": "./images/get_started16.png",
+			"32": "./images/get_started32.png",
+			"48": "./images/get_started48.png"
+		}
+	},
+	"icons": {
+		"16": "./images/get_started16.png",
+		"32": "./images/get_started32.png",
+		"48": "./images/get_started48.png"
+	},
+	"commands": {
+		"_execute_action": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+F",
+				"mac": "MacCtrl+Shift+F"
+			},
+			"description": "Opens hello.html"
+		}
+	}
+}
