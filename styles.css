@@ -1,0 +1,23 @@
+.snippets-dropdow__title {
+	width: 120px;
+	min-height: 20px;
+	background: #fff;
+	color: #000;
+	position: absolute;
+	display: none;
+	top: 55px;
+	left: 26px;
+	z-index: 10;
+	border: 1px solid #98afcc;
+	border-radius: 2px;
+}
+
+.recommend-item {
+	padding: 0.3rem 0.4rem;
+	transition: all 0.2s ease-in;
+}
+
+.recommend-item:hover {
+	cursor: pointer;
+	background: #ccc;
+}

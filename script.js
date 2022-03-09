@@ -1,42 +1,97 @@
 let idTextArea = "_chatText";
-let titles = ['est', 'del', 'done', 'res', 'pen'];
+let idAreaChat = "_chatSendArea";
+let titles = ["estimate", "delay", "pending", "restart", "done"];
+let keySearch = "";
 
-window.addEventListener('load', function() {
-    console.log('page is fully loaded');
-    //console.log(this.document.querySelector(`#${idText}`));
-}, false);
+window.addEventListener(
+	"hashchange",
+	function () {
+		let textArea = document.querySelector(`#${idTextArea}`);
 
-window.addEventListener('hashchange', function() {
-    //let textArea = document.querySelector(`#${idText}`);
-    let m = GetTitleTemplate("est");
-    console.log(m);
+		textArea.addEventListener("focus", () => {
+			createDropdowSnippets();
+			hiddenDropdowSnippets();
+		});
 
-    function GetTitleTemplate(text){
-        return titles.map(title => title.includes(text));
-    }
-}, false);
+		textArea.addEventListener("keyup", handlerKeyUp);
+	},
+	false
+);
 
-function GetTitleTemplate(text){
-    return titles.some(title => title.includes(text));
+function handlerKeyUp(e) {
+	keySearch = document.querySelector(`#${idTextArea}`).value;
+	if ((e.code === "Enter" || e.keycode === 13) && keySearch !== "") {
+		insertTemplateSnippet();
+		return;
+	}
+
+	if (keySearch.length === 0) {
+		hiddenDropdowSnippets();
+		return;
+	}
+
+	let keyRecommend = fuzzysort.go(keySearch, titles).map((i) => i.target);
+	reloadDropdowSnippets(keyRecommend);
 }
 
-function CreatePopupSnippets () {
-    let element = document.createElement('div');
-    let innerHtml = ``;
-    element.innerHTML = innerHtml;
-    element.classList.add("")
-    element.style()
-    return element;
+function createDropdowSnippets() {
+	if (document.getElementsByClassName("snippets-dropdow__title").length !== 0)
+		return;
+
+	let element = document.createElement("div");
+	element.className = "snippets-dropdow__title";
+	element.innerHTML = `<ul role="recommend" class="snippets-recommend"></ul>`;
+
+	let areaChat = document.querySelector(`#${idAreaChat}`);
+	areaChat.append(element);
 }
 
-function LoadSnippets () {
+function reloadDropdowSnippets(keyRecommend) {
+	if (keyRecommend === undefined || keyRecommend.length === 0) {
+		hiddenDropdowSnippets();
+		return;
+	}
 
+	console.log("keyRecommend", keyRecommend);
+	let recommendMenu = document.querySelector(".snippets-dropdow__title ul");
+	let recommendItems = "";
+	keyRecommend.forEach((item) => {
+		recommendItems += `<li aria-label=${item} class="recommend-item"><div>${item}<div></li>`;
+	});
+
+	recommendMenu.innerHTML = recommendItems;
+	showDropdowSnippets();
+	setPositionLeftDropdowSnippets();
 }
 
-function GetTemplateSnippets(text){
-    switch (text) {
-        case "est":
-            return `[Estimate]
+function hiddenDropdowSnippets() {
+	let element = document.getElementsByClassName("snippets-dropdow__title")[0];
+	console.log("element", element);
+	if (element === undefined) return;
+
+	element.style.display = "none";
+}
+
+function showDropdowSnippets() {
+	let element = document.getElementsByClassName("snippets-dropdow__title")[0];
+	if (element === undefined) return;
+
+	element.style.display = "block";
+}
+
+function setPositionLeftDropdowSnippets() {
+	let left = keySearch.length * 7.3 + 35;
+	document.getElementsByClassName(
+		"snippets-dropdow__title"
+	)[0].style.left = `${left}px`;
+}
+
+function insertTemplateSnippet() {}
+
+function getTemplateSnippets(text) {
+	switch (text) {
+		case "est":
+			return `[Estimate]
             ■ Project:
             ■ Task:
             ■ Process:
@@ -48,8 +103,8 @@ function GetTemplateSnippets(text){
             ■ Total:
             Thanks!`;
 
-        case "del":
-            return `[Delayed]
+		case "del":
+			return `[Delayed]
             ■ Project:
             ■ Task:
             ■ Process:
@@ -65,9 +120,9 @@ function GetTemplateSnippets(text){
             ■ Reason:
             ■ Temp Result:
             Thanks!`;
-        
-        case "res":
-            return `[Re-Start]
+
+		case "res":
+			return `[Re-Start]
             ■ Project: 
             ■ Task: 
             ■ Process: 
@@ -76,9 +131,9 @@ function GetTemplateSnippets(text){
             ■ Re-Start (Time): H
             ■ End (Date & Time): H
             Thanks!`;
-        
-        case "pen":
-            return `[Pending]
+
+		case "pen":
+			return `[Pending]
             ■ Project: 
             ■ Task: 
             ■ Process:
@@ -89,8 +144,8 @@ function GetTemplateSnippets(text){
             ※ Cập nhật thông số vào file EST: Đã cập nhật
             Thanks!`;
 
-        case "done":
-            return `[Done task]
+		case "done":
+			return `[Done task]
             ■ Project: 
             ■ Task:
             ■ Process: 
@@ -102,8 +157,8 @@ function GetTemplateSnippets(text){
             ※ Cập nhật thông số vào file EST: Đã cập nhật
             Thanks!`;
 
-        case "send":
-            return `Mình gửi bản shelve
+		case "send":
+			return `Mình gửi bản shelve
             ------------------------------------
             ■ Project:
             ■ Task:
@@ -114,8 +169,8 @@ function GetTemplateSnippets(text){
                 Shelve name: 
             ------------------------------------
             Thanks!`;
-    
-        default:
-            return '';
-    }
+
+		default:
+			return "";
+	}
 }
