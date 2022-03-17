@@ -5,8 +5,47 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Snippets Chatwork</title>
+		<link rel="stylesheet" href="./styles.css" />
 	</head>
 	<body>
-		<h1>Hello</h1>
+		<header>
+			<h3>Snippet Chatwork</h3>
+		</header>
+		<main>
+			<div class="container">
+				<div id="home" class="option__container">
+					<div class="option__list">
+						<span>Enable extension</span>
+						<div class="btn btn__toggle">
+							<input
+								type="checkbox"
+								id="switchEnable"
+								class="btn__toggle-checkbox"
+							/>
+							<label
+								for="switchEnable"
+								class="btn__toggle-label"
+							/>
+						</div>
+					</div>
+					<div class="option__feature">
+						<div class="option__feature-detail">
+							<button id="addTargetTo">Add target send TO</button>
+						</div>
+						<div class="option__feature-detail">
+							<button id="addTargetCc">Add target send CC</button>
+						</div>
+					</div>
+				</div>
+				<div id="addTarget" class="option__container disable">
+					Page 2
+				</div>
+			</div>
+		</main>
+		<footer>
+			<p>© 2022 w2Solution - <a href="#">Extension Options</a></p>
+			<p>Design By Do Le</p>
+		</footer>
 	</body>
+	<script src="./script.js"></script>
 </html>

@@ -4,16 +4,16 @@
 	"version": "1.0",
 	"manifest_version": 3,
 	"background": {
-		"service_worker": "./process.js"
+		"service_worker": "./background.js"
 	},
 	"content_scripts": [
 		{
 			"matches": ["https://www.chatwork.com/*"],
 			"css": ["styles.css"],
-			"js": ["script.js", "fuzzysort.js"]
+			"js": ["Constants.js", "fuzzysort.js", "Util.js", "script.js"]
 		}
 	],
-	"permissions": ["storage"],
+	"permissions": ["storage", "activeTab", "scripting"],
 	"action": {
 		"default_title": "Snippets Chatwork",
 		"default_popup": "./index.html",
