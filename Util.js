@@ -94,7 +94,6 @@ function reloadDropdowSnippets(keyRecommends) {
 	let recommendMenu = document.querySelector(".snippets-dropdow__title ul");
 	recommendMenu.innerHTML = recommendItems;
 	toggleDropdowSnippets();
-	//handlerOnClick();
 }
 
 function toggleDropdowSnippets(style = "block") {
@@ -111,13 +110,6 @@ function setPositionLeftDropdowSnippets() {
 	document.getElementsByClassName(
 		"snippets-dropdow__title"
 	)[0].style.left = `${left}px`;
-}
-
-function handlerOnClick() {
-	let elements = document.querySelectorAll("li.recommend-item");
-	elements.forEach((element) => {
-		document.addEventListener("click", insertTemplateSnippet(element));
-	});
 }
 
 function insertTemplateSnippet(element) {

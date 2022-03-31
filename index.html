@@ -6,43 +6,140 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Snippets Chatwork</title>
 		<link rel="stylesheet" href="./styles.css" />
+		<!-- BOXICONS -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+		/>
 	</head>
 	<body>
 		<header>
 			<h3>Snippet Chatwork</h3>
 		</header>
 		<main>
-			<div class="container">
-				<div id="home" class="option__container">
-					<div class="option__list">
-						<span>Enable extension</span>
-						<div class="btn btn__toggle">
-							<input
-								type="checkbox"
-								id="switchEnable"
-								class="btn__toggle-checkbox"
-							/>
-							<label
-								for="switchEnable"
-								class="btn__toggle-label"
-							/>
+			<div class="container__slides">
+				<section class="home__container slide active">
+					<div class="home__status">
+						<div class="home__status-detail">
+							<span>Enable extension</span>
+							<div class="btn btn__toggle">
+								<input
+									type="checkbox"
+									id="optionEnable"
+									class="btn__toggle-checkbox"
+								/>
+								<label
+									for="optionEnable"
+									class="btn__toggle-label"
+								/>
+							</div>
 						</div>
 					</div>
-					<div class="option__feature">
-						<div class="option__feature-detail">
-							<button id="addTargetTo">Add target send TO</button>
+					<div class="home__feature">
+						<div class="home__feature-detail">
+							<button
+								data-value="estimate"
+								class="home__feature-btn"
+							>
+								Create Report
+							</button>
 						</div>
-						<div class="option__feature-detail">
-							<button id="addTargetCc">Add target send CC</button>
+						<div class="home__feature-detail">
+							<button
+								data-value="target"
+								class="home__feature-btn"
+							>
+								Management target
+							</button>
+						</div>
+						<div class="home__feature-detail">
+							<button
+								data-value="setting"
+								class="home__feature-btn"
+							>
+								Setting
+							</button>
 						</div>
 					</div>
-				</div>
-				<div id="addTarget" class="option__container disable">
-					Page 2
-				</div>
+				</section>
+				<section id="estimate" class="estimate__container slide">
+					<form>
+						<div class="form__group">
+							<label for="TargetTo" class="form__group-title"
+								>Target To</label
+							>
+							<div class="form__group-values">
+								<select
+									class="form__group-dropdownlist"
+									name="TargetTo"
+									id="TargetTo"
+									data-placeholder="Choose an Option"
+									multiple
+								>
+									<option></option>
+									<option value="Tâm">Tâm</option>
+									<option value="Hiếu">Hiếu</option>
+								</select>
+							</div>
+						</div>
+						<div class="form__group">
+							<label for="TargetCc" class="form__group-title"
+								>Target Cc</label
+							>
+							<div class="form__group-values">
+								<select
+									class="form__group-dropdownlist"
+									name="TargetCc"
+									id="TargetCc"
+								>
+									<option value="Cường">Cường</option>
+								</select>
+							</div>
+						</div>
+						<input type="button" value="Create" />
+					</form>
+					<button>Back</button>
+				</section>
+				<section id="target" class="target__container slide"></section>
+				<section
+					id="setting"
+					class="setting__container slide"
+				></section>
 			</div>
 		</main>
+		<div class="test"></div>
 		<footer>
+			<div class="select__content" id="selectTarget">
+				<div class="selected__list">
+					<div
+						data-value-selected="option1"
+						class="select__item-selected"
+						title="Lê Trung Hiếu"
+					>
+						<span>Lê Trung Hiếu</span>
+						<div class="select__icon close">✖</div>
+					</div>
+					<div
+						data-value-selected="option2"
+						class="select__item-selected"
+						title="Lê Anh Tâm"
+					>
+						<span>Lê Anh Tâm</span>
+						<div class="select__icon close">✖</div>
+					</div>
+				</div>
+				<div class="select__wrapper">
+					<div data-value-option="option1" class="select__option">
+						option1
+					</div>
+					<div data-value-option="option2" class="select__option">
+						option2
+					</div>
+					<div data-value-option="option3" class="select__option">
+						option3
+					</div>
+				</div>
+			</div>
 			<p>© 2022 w2Solution - <a href="#">Extension Options</a></p>
 			<p>Design By Do Le</p>
 		</footer>

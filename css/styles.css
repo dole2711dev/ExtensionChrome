@@ -1,0 +1,352 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--color-primary: rgb(90, 90, 90);
+	--color-secondary: rgb(66, 133, 244);
+	--color-border: #dedede;
+	--text-primary: rgba(0, 0, 0, 0.06);
+	--text-secondary: rgb(90, 90, 90);
+	--bg-primary: #ffffff;
+	--bg-secondary: #f5f5f5;
+	--transition: all 0.3s ease-in;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+	line-height: 1.7;
+	width: 325px;
+	min-height: 240px;
+	border-radius: 5px;
+	font-size: 13px;
+	font-weight: 400;
+}
+
+header {
+	padding: 0.5rem 0;
+	border-bottom: 1px solid var(--color-border);
+}
+
+header h3 {
+	font-weight: 500;
+	text-align: center;
+}
+
+footer {
+	text-align: center;
+	padding: 0.5rem 0;
+	border-top: 1px solid var(--color-border);
+}
+
+footer p {
+	color: var(--color-primary);
+	font-weight: 400;
+	font-size: 12px;
+}
+
+a {
+	text-decoration: none;
+}
+
+#TargetTo {
+	width: 150px;
+}
+
+.snippets-dropdow__title {
+	min-width: 120px;
+	min-height: 20px;
+	background: #fff;
+	color: #000;
+	position: absolute;
+	display: none;
+	top: 48px;
+	left: 26px;
+	z-index: 10;
+	border: 1px solid #98afcc;
+	border-radius: 2px;
+}
+
+.recommend-item {
+	padding: 0.3rem 0.4rem;
+	transition: all 0.2s ease-in;
+}
+
+.recommend-item.active,
+.recommend-item:hover {
+	cursor: pointer;
+	background: #ccc;
+}
+
+b.red {
+	color: red;
+}
+
+main {
+	position: relative;
+	overflow: hidden;
+}
+
+.container__slides {
+	overflow: hidden;
+	position: relative;
+	display: flex;
+}
+
+.home__container,
+.estimate__container,
+.target__container,
+.setting__container {
+	padding: 0.5rem 1rem;
+	visibility: hidden;
+	transition: var(--transition);
+	min-width: 100%;
+}
+.home__container {
+	visibility: visible;
+	transform: translateX(-100%);
+}
+.home__container.active {
+	visibility: visible;
+	transform: translateX(0%);
+}
+.estimate__container.active {
+	visibility: visible;
+	transform: translateX(-100%);
+}
+.target__container.active {
+	visibility: visible;
+	transform: translateX(-200%);
+}
+.setting__container.active {
+	visibility: visible;
+	transform: translateX(-300%);
+}
+
+/* ============================ HOME ============================ */
+
+.home__status-detail {
+	display: flex;
+	justify-content: space-between;
+}
+
+.home__feature {
+	margin: 0.5rem 0;
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.5rem;
+}
+
+.home__feature-detail {
+	transition: var(--transition);
+}
+
+.home__feature-btn {
+	font-size: 12px;
+	background-color: var(--bg-secondary);
+	cursor: pointer;
+	border-radius: 5px;
+	border: transparent;
+	padding: 1rem 0.8rem;
+	outline: none;
+	min-width: 100%;
+	height: 100%;
+}
+
+.home__feature-detail:hover {
+	filter: brightness(0.95);
+}
+
+.option__icon {
+	font-size: 16px;
+	color: var(--color-primary);
+}
+
+/* ============================ ESTIMATE FORM ============================ */
+
+.form__group {
+	display: grid;
+	grid-template-columns: 80px 1fr;
+}
+
+.form__group .form__group-title {
+	font-size: 13px;
+	font-weight: 400;
+}
+
+/* ============================ TOGGLE BUTTON ============================ */
+.btn__toggle-label {
+	position: relative;
+	display: inline-block;
+	width: 46px;
+	height: 26px;
+	background-color: #bdc1c6;
+	border-radius: 40px;
+}
+
+.btn__toggle-label::after {
+	content: "";
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	background-color: #fff;
+	top: 2px;
+	left: 2px;
+	transition: all 0.5s;
+}
+
+.btn__toggle-checkbox:checked + .btn__toggle-label::after {
+	background-color: #006eff;
+	left: 22px;
+}
+
+.btn__toggle-checkbox:checked + .btn__toggle-label {
+	background-color: #8db9f4;
+}
+
+.btn__toggle-checkbox {
+	display: none;
+}
+
+/* ============================ SELECT ============================ */
+
+.select__content {
+	max-width: 240px;
+	position: relative;
+}
+
+.selected__list {
+	position: relative;
+	padding: 0.3rem 1rem 0.3rem 0.3rem;
+	border: 1px solid var(--color-border);
+	max-width: 250px;
+	min-height: 40px;
+	border-radius: 3px;
+	display: flex;
+	flex-wrap: wrap;
+	cursor: pointer;
+	align-items: center;
+	gap: 0.3rem;
+	background-color: #fff;
+	z-index: 1;
+	transition: var(--transition);
+}
+
+.selected__list:hover {
+	border-color: var(--color-secondary);
+}
+
+.test {
+	height: 10px;
+	width: 10px;
+	background-image: url(images/rounded-down.svg);
+}
+
+.selected__list::after {
+	content: "";
+
+	position: absolute;
+	right: 7px;
+	transition: var(--transition);
+	transform: rotate(180deg);
+}
+
+.select__content.open_list .selected__list::after {
+	transform: rotate(0deg);
+}
+
+.selected__list .input__icon {
+	font-size: 14px;
+	transition: var(--transition);
+}
+.select__item-selected {
+	padding: 0.2rem 0.75rem;
+	background: var(--bg-secondary);
+	border-radius: 5px;
+	transition: var(--transition);
+	display: flex;
+	border-color: transparent;
+}
+
+.select__item-selected:hover {
+	filter: brightness(0.8);
+}
+
+.select__item-selected.remove {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.select__item-selected span {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden !important;
+	max-width: 60px;
+}
+
+.select__icon {
+	padding-left: 0.5rem;
+}
+
+.select__wrapper {
+	position: absolute;
+	max-height: 90px;
+	overflow-y: auto;
+	z-index: -1;
+	border: 1px solid var(--color-border);
+	border-radius: 0 0 3px 3px;
+	opacity: 0;
+	transform: translateY(-35px);
+	pointer-events: none;
+	animation: 0.3s alternate SelectSlideUp;
+}
+
+.select__content.open_list .select__wrapper {
+	pointer-events: inherit;
+	animation: 0.3s alternate SelectSlideDown;
+	opacity: 1;
+	transform: translateY(-1px);
+	width: 100%;
+}
+
+.select__option {
+	padding: 0.2rem 0.3rem;
+	max-width: 250px;
+	background: #fff;
+	transition: var(--transition);
+	width: 100%;
+	cursor: pointer;
+	text-align: left;
+}
+
+.select__option:hover {
+	background: var(--bg-primary);
+	filter: brightness(0.9);
+}
+
+@keyframes SelectSlideUp {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateY(-35px);
+	}
+}
+
+@keyframes SelectSlideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-35px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0%);
+	}
+}

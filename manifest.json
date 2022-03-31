@@ -9,8 +9,15 @@
 	"content_scripts": [
 		{
 			"matches": ["https://www.chatwork.com/*"],
-			"css": ["styles.css"],
-			"js": ["Constants.js", "fuzzysort.js", "Util.js", "script.js"]
+			"css": ["./css/styles.css"],
+			"js": [
+				"jquery.min.js",
+				"jquery.js",
+				"Constants.js",
+				"fuzzysort.js",
+				"Util.js",
+				"script.js"
+			]
 		}
 	],
 	"permissions": ["storage", "activeTab", "scripting"],
