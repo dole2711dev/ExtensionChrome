@@ -1,25 +1,50 @@
-//// background.js ////
-function injectedFunction() {
-	chrome.storage.sync.set({ key: "Dole" }, function () {
-		console.log("Value is set to " + "value");
+// background.js
+
+function SetValueFromStorage() {
+	let data = [
+		{
+			id: "2937197",
+			name: "Vũ Mạnh Cường",
+		},
+		{
+			id: "4163335",
+			name: "Lê Anh Tâm",
+		},
+	];
+
+	// Set target To
+	chrome.storage.local.set({ To: data }, function () {});
+
+	// Set target Cc
+	chrome.storage.local.set({ Cc: data }, function () {});
+
+	//let m = document.getElementById("estimate");
+	//console.log(m);
+
+	//var currentTab = getCurrentTab();
+	//if (currentTab.url.includes("https://www.chatwork.com/")) {
+	//	chrome.tabs.executeScript(
+	//		currentTab.id,
+	//		{ file: "content.js" },
+	//		function () {}
+	//	);
+	//}
+}
+
+function GetValueFromStorage() {
+	// Get target To
+	chrome.storage.local.get("To", function (result) {
+		targetToList = result;
+	});
+
+	// Get target Cc
+	chrome.storage.local.get("Cc", function (result) {
+		targetCcList = result;
 	});
 }
 
-chrome.action.onClicked.addListener((tab) => {
-	chrome.scripting.executeScript({
-		target: { tabId: tab.id },
-		function: injectedFunction,
-	});
-});
-
-/*
-	chrome.storage.sync.set({ key: "Dole" }, function () {
-		console.log("Value is set to " + "value");
-	});
-
-
-		
-	chrome.storage.sync.get(["key"], function (result) {
-		console.log("Value currently is " + result.key);
-	});
-*/
+async function getCurrentTab() {
+	let queryOptions = { active: true, currentWindow: true };
+	let [tab] = await chrome.tabs.query(queryOptions);
+	return tab;
+}

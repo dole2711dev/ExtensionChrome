@@ -5,16 +5,26 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Snippets Chatwork</title>
-		<link rel="stylesheet" href="./styles.css" />
+		<link rel="stylesheet" href="./css/styles.css" />
 		<!-- BOXICONS -->
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
 		/>
+		<!-- ICON -->
+		<link rel="stylesheet" type="text/css" href="./css/icofont.min.css" />
 	</head>
 	<body>
 		<header>
-			<h3>Snippet Chatwork</h3>
+			<div class="header__container">
+				<div class="header__title">
+					<i class="icofont-brand-airtel"></i>
+					<h3>Snippet Chatwork</h3>
+				</div>
+				<div class="header__subtitle">
+					<p>Tool support to working with chatwork</p>
+				</div>
+			</div>
 		</header>
 		<main>
 			<div class="container__slides">
@@ -41,7 +51,9 @@
 								data-value="estimate"
 								class="home__feature-btn"
 							>
-								Create Report
+								<i class="icofont-contact-add"></i>
+								<p>Create Report</p>
+								<i class="icofont-rounded-right"></i>
 							</button>
 						</div>
 						<div class="home__feature-detail">
@@ -49,7 +61,9 @@
 								data-value="target"
 								class="home__feature-btn"
 							>
-								Management target
+								<i class="icofont-listing-box"></i>
+								<p>Management target</p>
+								<i class="icofont-rounded-right"></i>
 							</button>
 						</div>
 						<div class="home__feature-detail">
@@ -57,7 +71,9 @@
 								data-value="setting"
 								class="home__feature-btn"
 							>
-								Setting
+								<i class="icofont-settings"></i>
+								<p>Setting</p>
+								<i class="icofont-rounded-right"></i>
 							</button>
 						</div>
 					</div>
@@ -68,37 +84,31 @@
 							<label for="TargetTo" class="form__group-title"
 								>Target To</label
 							>
-							<div class="form__group-values">
-								<select
-									class="form__group-dropdownlist"
-									name="TargetTo"
-									id="TargetTo"
-									data-placeholder="Choose an Option"
-									multiple
-								>
-									<option></option>
-									<option value="Tâm">Tâm</option>
-									<option value="Hiếu">Hiếu</option>
-								</select>
+							<div id="targetTo" class="select__menu">
+								<div class="dropdown__select selected__list">
+									<i class="icofont-rounded-up"></i>
+								</div>
+								<div class="select__group"></div>
 							</div>
 						</div>
 						<div class="form__group">
 							<label for="TargetCc" class="form__group-title"
 								>Target Cc</label
 							>
-							<div class="form__group-values">
-								<select
-									class="form__group-dropdownlist"
-									name="TargetCc"
-									id="TargetCc"
-								>
-									<option value="Cường">Cường</option>
-								</select>
+							<div id="TargetCc" class="select__menu">
+								<div class="dropdown__select selected__list">
+									<i class="icofont-rounded-up"></i>
+								</div>
+								<div class="select__group"></div>
 							</div>
 						</div>
-						<input type="button" value="Create" />
+						<button type="button" class="btn btn-secondary">
+							Back
+						</button>
+						<button type="button" class="btn btn-primary">
+							Create
+						</button>
 					</form>
-					<button>Back</button>
 				</section>
 				<section id="target" class="target__container slide"></section>
 				<section
@@ -109,40 +119,12 @@
 		</main>
 		<div class="test"></div>
 		<footer>
-			<div class="select__content" id="selectTarget">
-				<div class="selected__list">
-					<div
-						data-value-selected="option1"
-						class="select__item-selected"
-						title="Lê Trung Hiếu"
-					>
-						<span>Lê Trung Hiếu</span>
-						<div class="select__icon close">✖</div>
-					</div>
-					<div
-						data-value-selected="option2"
-						class="select__item-selected"
-						title="Lê Anh Tâm"
-					>
-						<span>Lê Anh Tâm</span>
-						<div class="select__icon close">✖</div>
-					</div>
-				</div>
-				<div class="select__wrapper">
-					<div data-value-option="option1" class="select__option">
-						option1
-					</div>
-					<div data-value-option="option2" class="select__option">
-						option2
-					</div>
-					<div data-value-option="option3" class="select__option">
-						option3
-					</div>
-				</div>
-			</div>
 			<p>© 2022 w2Solution - <a href="#">Extension Options</a></p>
 			<p>Design By Do Le</p>
 		</footer>
 	</body>
 	<script src="./script.js"></script>
+	<script src="./jquery.min.js"></script>
+	<script src="./jquery.js"></script>
+	<script src="./Constants.js"></script>
 </html>
