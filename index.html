@@ -32,7 +32,7 @@
 					<div class="home__status">
 						<div class="home__status-detail">
 							<span>Enable extension</span>
-							<div class="btn btn__toggle">
+							<div class="btn__toggle">
 								<input
 									type="checkbox"
 									id="optionEnable"
@@ -79,38 +79,45 @@
 					</div>
 				</section>
 				<section id="estimate" class="estimate__container slide">
-					<form>
-						<div class="form__group">
-							<label for="TargetTo" class="form__group-title"
-								>Target To</label
-							>
-							<div id="targetTo" class="select__menu">
-								<div class="dropdown__select selected__list">
-									<i class="icofont-rounded-up"></i>
-								</div>
-								<div class="select__group"></div>
-							</div>
+					<div class="container__estimate">
+						<div class="container">
+							<div class="estimate__title">Choose report</div>
+							<ul class="estimate__list">
+								<li id="le">Estimate</li>
+								<li>Estimate QC</li>
+								<li>Delay</li>
+								<li>Re-start</li>
+								<li>Pending</li>
+								<li>Done</li>
+							</ul>
 						</div>
-						<div class="form__group">
-							<label for="TargetCc" class="form__group-title"
-								>Target Cc</label
-							>
-							<div id="TargetCc" class="select__menu">
-								<div class="dropdown__select selected__list">
-									<i class="icofont-rounded-up"></i>
-								</div>
-								<div class="select__group"></div>
-							</div>
-						</div>
-						<button type="button" class="btn btn-secondary">
-							Back
-						</button>
-						<button type="button" class="btn btn-primary">
-							Create
-						</button>
-					</form>
+						<div id="typeEstimate" class="container"></div>
+					</div>
 				</section>
-				<section id="target" class="target__container slide"></section>
+				<section id="target" class="target__container slide">
+					<div class="form__group">
+						<label for="TargetTo" class="form__group-title"
+							>Target To</label
+						>
+						<div id="targetTo" class="select__menu">
+							<div class="dropdown__select selected__list">
+								<i class="icofont-rounded-up"></i>
+							</div>
+							<div class="select__group"></div>
+						</div>
+					</div>
+					<div class="form__group">
+						<label for="TargetCc" class="form__group-title"
+							>Target Cc</label
+						>
+						<div id="TargetCc" class="select__menu">
+							<div class="dropdown__select selected__list">
+								<i class="icofont-rounded-up"></i>
+							</div>
+							<div class="select__group"></div>
+						</div>
+					</div>
+				</section>
 				<section
 					id="setting"
 					class="setting__container slide"
@@ -123,8 +130,9 @@
 			<p>Design By Do Le</p>
 		</footer>
 	</body>
+	<script src="./index.js"></script>
 	<script src="./script.js"></script>
-	<script src="./jquery.min.js"></script>
-	<script src="./jquery.js"></script>
-	<script src="./Constants.js"></script>
+	<script src="./js/commons/jquery.js"></script>
+	<script src="./js/commons/jquery.min.js"></script>
+	<script src="./js/constant/Constants.js"></script>
 </html>

@@ -10,7 +10,11 @@
 		{
 			"matches": ["https://www.chatwork.com/*"],
 			"css": ["./css/styles.css"],
-			"js": ["fuzzysort.js", "script.js", "Constants.js"]
+			"js": [
+				"./js/fuzzysort/fuzzysort.js",
+				"./js/constant/Constants.js",
+				"script.js"
+			]
 		}
 	],
 	"permissions": ["storage", "activeTab", "scripting"],
